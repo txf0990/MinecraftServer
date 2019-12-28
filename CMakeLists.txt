@@ -1,7 +1,7 @@
 project (TryBoost)
 
 cmake_minimum_required(VERSION 3.1)
-set (CMAKE_CXX_STANDARD 11)
+set (CMAKE_CXX_STANDARD 17)
 
 set(Boost_ADDITIONAL_VERSIONS "1.72" "1.72.0")
 set(Boost_DEBUG on)
