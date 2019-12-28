@@ -7,7 +7,7 @@ set(Boost_ADDITIONAL_VERSIONS "1.72" "1.72.0")
 set(Boost_DEBUG on)
 set(Boost_USE_STATIC_LIBS ON)
 set(Boost_USE_MULTITHREADED ON)
-find_package(Boost 1.67.0 REQUIRED COMPONENTS system)
+find_package(Boost 1.72.0 REQUIRED COMPONENTS system)
 
 if(Boost_FOUND)
     message(status "** Boost Include: ${Boost_INCLUDE_DIR}")
