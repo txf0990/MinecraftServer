@@ -38,8 +38,14 @@ int main(int argc, char* argv[])
       std::string message;
       std::cin >> message;
 
-      boost::system::error_code ignored_error;
-      boost::asio::write(socket, boost::asio::buffer(message), ignored_error);
+      std::cout << "Writing message: " << message << std::endl;
+      boost::asio::write(socket, boost::asio::buffer(message), error);
+
+      if (error) {
+        throw boost::system::system_error(error); // Some other error.
+      } else {
+        std::cout << "Message written." << std::endl;
+      }
     }
   }
   catch (std::exception& e)
