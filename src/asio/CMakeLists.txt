@@ -10,3 +10,5 @@ target_link_libraries (daytime_server ${COMMON_LIBS})
 
 add_executable(daytime_client daytime_client.cpp)
 target_link_libraries (daytime_client ${COMMON_LIBS})
+
+add_executable(move_cursor move_cursor.cpp)
