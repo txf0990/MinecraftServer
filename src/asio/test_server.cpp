@@ -18,14 +18,13 @@ int main() {
     tcp::acceptor acceptor(io_context, tcp::endpoint(tcp::v4(), 10024));
 
     boost::system::error_code error;
+
+    tcp::socket socket(io_context);
+    acceptor.accept(socket);
+    std::string greeting = "Hello!\n";
+    boost::asio::write(socket, boost::asio::buffer(greeting), error);
+
     while (true) {
-      tcp::socket socket(io_context);
-      acceptor.accept(socket);
-
-
-      std::string greeting = "Hello!\n";
-      boost::asio::write(socket, boost::asio::buffer(greeting), error);
-
       boost::array<char, 128> buf;
 
       size_t len = socket.read_some(boost::asio::buffer(buf), error);
@@ -34,7 +33,9 @@ int main() {
         throw boost::system::system_error(error); // Some other error.
 
       std::string receivedMessage(buf.data(), len);
-      std::string message = make_daytime_string() + "--->" + receivedMessage;
+      std::string message = make_daytime_string();
+      message.pop_back();
+      message += "--->" + receivedMessage + "\n";
       std::cout << "Send message: " << message << std::endl;
 
       boost::asio::write(socket, boost::asio::buffer(message), error);
