@@ -10,3 +10,9 @@ target_link_libraries (daytime_server ${COMMON_LIBS})
 
 add_executable(daytime_client daytime_client.cpp)
 target_link_libraries (daytime_client ${COMMON_LIBS})
+
+add_executable(test_client test_client.cpp)
+target_link_libraries (test_client ${COMMON_LIBS})
+
+add_executable(test_server test_server.cpp)
+target_link_libraries (test_server ${COMMON_LIBS})
