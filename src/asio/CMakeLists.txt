@@ -16,3 +16,5 @@ target_link_libraries (test_client ${COMMON_LIBS})
 
 add_executable(test_server test_server.cpp)
 target_link_libraries (test_server ${COMMON_LIBS})
+
+add_executable(move_cursor move_cursor.cpp)
