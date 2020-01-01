@@ -16,8 +16,6 @@ using std::make_shared;
 using std::shared_ptr;
 using std::string;
 
-//const string GREETING("Hello\n");
-
 shared_ptr<string> MakeDaytimeString() {
   std::time_t now = std::time(0);
   return make_shared<string>(std::ctime(&now));
